@@ -15,10 +15,10 @@ def load_config(config_path = "./config.json"):
     # 将json字符串反序列化为dict类型
     config = json.loads(config_str)
     print("Load config success")
-    chatgpt_api_key = os.environ('CHATGPT_API_KEY')
+    chatgpt_api_key = os.environ.get('CHATGPT_API_KEY')
     if chatgpt_api_key :
         config['model']['openai']['api_key'] = chatgpt_api_key
-    channel_type = os.environ('CHANNEL_TYPE')
+    channel_type = os.environ.get('CHANNEL_TYPE')
     if channel_type :
         config['channel']['type'] = channel_type
     return config
